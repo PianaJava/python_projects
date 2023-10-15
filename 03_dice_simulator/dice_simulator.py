@@ -15,7 +15,6 @@ def roll_dice(amount: int = 2) -> list[int]:
     for i in range(amount):
         random_roll: int = random.randint(1, 6)
         rolls.append(random_roll)
-
     return rolls
 
 
@@ -30,10 +29,14 @@ def main():
                 break
 
             # Try to parse the user_input to int
-            print(*roll_dice(int(user_input)), sep=', ')
+            dice_output = roll_dice(int(user_input))
+            print(*dice_output, sep=', ')
+
+            # Print the sum of the outputs
+            print("The sum of dice is: ", sum(dice_output))
+        
         except ValueError:
             print('(Please enter a valid number)')
-
 
 if __name__ == '__main__':
     main()
