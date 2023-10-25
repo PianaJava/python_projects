@@ -2,7 +2,7 @@ from random import choice
 
 
 def run_game():
-    word: str = choice(['apple', 'secret', 'banana'])
+    word_input: str = choice(['apple', 'secret', 'banana'])     #pick random word_input among those 
 
     # A friendly interactive welcome message
     username: str = input('What is your name? >> ')
@@ -10,18 +10,18 @@ def run_game():
 
     # Setup
     guessed: str = ''  # Will contain all the letters used to guess
-    tries: int = 3  # Set the amount of tries you want the user to have
+    attempts: int = 3  # Set the amount of attempts you want the user to have
 
     # The game
-    while tries > 0:
+    while attempts > 0:
         blanks: int = 0
 
-        print('Word: ', end='')
-        for char in word:
+        print('Word: ', end=' ')
+        for char in word_input:
             if char in guessed:
-                print(char, end='')
+                print(char, end=' ')
             else:
-                print('_', end='')
+                print('_', end=' ')
                 blanks += 1
 
         print()  # Add a blank line
@@ -39,18 +39,28 @@ def run_game():
             print(f'You already used: "{guess}". Please try with another letter!')
             continue
 
-        # Add the guess to the guessed string
-        guessed += guess
+        if len(guess) == 1:
+            guessed += guess 
 
-        # Check that the guess is in the word
-        if guess not in word:
-            tries -= 1
-            print(f'Sorry, that was wrong... ({tries} tries remaining)')
+        # Check that the guess is in the input word
+        if guess not in word_input and len(guess)==1:
+            attempts -= 1
+            print(f'Sorry, that was wrong... ({attempts} attempts remaining)')
+            # Add the guess to the guessed string
+        
+        #check length string and word input 
+        elif len(guess) > 1 and guess != word_input: 
+            print(f"ERROR!!!!, It's only possible to add more than one letter to guess the word, try again, you still have {attempts} attempts)")
+            continue
 
-            # Game-over if tries reaches 0
-            if tries == 0:
-                print('No more tries remaining... You lose.')
-                break
+        elif guess == word_input:
+            print('You got it!')
+            break
+
+        # Game-over if attempts reaches 0
+        if attempts == 0:
+            print('No more attempts remaining... You lose.')
+            break
 
 
 if __name__ == '__main__':
