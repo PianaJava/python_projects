@@ -1,16 +1,13 @@
 import string
 import secrets
 
-
 def contains_upper(password: str) -> bool:
     """Checks whether a password contains uppercase characters"""
 
-    for char in password:
+    for char in password:    
         if char.isupper():
             return True
-
-    return False  # There were no uppercase chars
-
+    return False # There were no uppercase chars
 
 def contains_symbols(password: str) -> bool:
     """Checks whether a password contains symbols"""
@@ -19,7 +16,7 @@ def contains_symbols(password: str) -> bool:
         if char in string.punctuation:
             return True
 
-    return False  # There were no uppercase chars
+    return False  # There were no symbol chars
 
 
 def generate_password(length: int, symbols: bool, uppercase: bool) -> str:
@@ -55,11 +52,18 @@ def generate_password(length: int, symbols: bool, uppercase: bool) -> str:
 
     return new_password
 
-
 if __name__ == '__main__':
     # Generate 5 random passwords
-    for i in range(1, 6):
-        new_pass: str = generate_password(length=15, symbols=True, uppercase=True)
-        specs: str = f'U: {contains_upper(new_pass)}, S: {contains_symbols(new_pass)}'
+    length=15
+    symbols=True
+    uppercase=True
 
+    for i in range(1,200):
+        new_pass: str = generate_password(length, symbols, uppercase)
+
+        # Check if the pass contains at least one symbol (when symbols == True) or at least one upper (when uppercase == True)
+        while (symbols == True and not contains_symbols(new_pass)) or (uppercase == True and not contains_upper(new_pass)):
+            new_pass: str = generate_password(length, symbols, uppercase)
+
+        specs: str = f'U: {contains_upper(new_pass)}, S: {contains_symbols(new_pass)}'            
         print(f'{i} -> {new_pass} ({specs})')

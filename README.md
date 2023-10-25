@@ -20,3 +20,5 @@ Hangman corrected with length checkup.
 
 #05 Corrected with count update each step and final results 
 >>>>>>> devel
+
+#6 Corrected with mandatory symbol or capital letter, when applied
