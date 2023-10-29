@@ -5,7 +5,9 @@ class MyQR:
     """A class that simplifies the creation of QR codes"""
 
     def __init__(self, size: int, padding: int):
-        self.qr = qrcode.QRCode(box_size=size, border=padding)
+        self.qr = qrcode.QRCode(box_size=size, 
+                                border=padding, 
+                                error_correction=qrcode.constants.ERROR_CORRECT_L)
 
     def create_qr(self, file_name: str, fg: str, bg: str):
         """
@@ -19,7 +21,7 @@ class MyQR:
 
         # Get the user input
         # user_input: str = input('Enter text: ')
-        user_input: str = 'This is an example'
+        user_input: str = 'http://google.com'
 
         try:
             # Add the user input to the qr code and create it
@@ -36,8 +38,8 @@ class MyQR:
 def main():
     myqr = MyQR(size=30, padding=2)
     myqr.create_qr(file_name='sample_qr.png',
-                   fg='#48c9b0',
-                   bg='white')
+                    fg='blue',
+                    bg='black')
 
 
 if __name__ == '__main__':

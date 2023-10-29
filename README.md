@@ -21,4 +21,6 @@ Hangman corrected with length checkup.
 #05 Corrected with count update each step and final results 
 >>>>>>> devel
 
-#6 Corrected with mandatory symbol or capital letter, when applied
+#06 Corrected with mandatory symbol or capital letter, when applied
+
+#07 No special idea on how to modify this file, just added some output parameters
