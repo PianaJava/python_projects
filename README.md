@@ -24,3 +24,5 @@ Hangman corrected with length checkup.
 #06 Corrected with mandatory symbol or capital letter, when applied
 
 #07 No special idea on how to modify this file, just added some output parameters
+
+#08 Added input prompt to select the file, random choose of the UserAgent

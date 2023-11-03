@@ -2,6 +2,7 @@ import csv
 import requests
 from http import HTTPStatus
 from fake_useragent import UserAgent
+import os
 
 
 def get_websites(csv_path: str) -> list[str]:
@@ -23,7 +24,7 @@ def get_user_agent() -> str:
     """Returns a user agent that can be used with requests"""
 
     ua = UserAgent()
-    return ua.chrome
+    return ua.random
 
 
 def get_status_description(status_code: int) -> str:
@@ -47,7 +48,8 @@ def check_website(website: str, user_agent: str):
 
 
 def main():
-    sites: list[str] = get_websites('websites.csv')
+    print(f"csv file to be imported must be located in {os.getcwd()}")
+    sites: list[str] = get_websites(input(f'Insert csv Filename: '))
     user_agent: str = get_user_agent()
 
     # Check websites
