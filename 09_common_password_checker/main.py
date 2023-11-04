@@ -1,3 +1,5 @@
+import re
+
 def check_password(password: str):
     """
     Checks whether a password is in the 100.000 most common passwords.
@@ -11,11 +13,14 @@ def check_password(password: str):
 
     # If any of the words are equal to the password, return True
     for i, common_password in enumerate(common_passwords, start=1):
-        if password == common_password:
+        if len(password) <= 3:
+            print('{password}: ❌ this password is too short')
+            return
+        elif re.search(password, common_password):
             print(f'{password}: ❌ (#{i})')
             return  # Exit the function as soon as we have a match
 
-    # If the password is not located in the common passwords, it's unique
+        # If the password is not located in the common passwords, it's unique
     print(f'{password}: ✅ (Unique)')
 
 
