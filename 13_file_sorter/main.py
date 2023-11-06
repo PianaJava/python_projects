@@ -1,8 +1,13 @@
 import os
-import shutil
+import shutil       #used to move files around
+import tkinter as tk
+from tkinter import filedialog
 
+def select_folder(app):
+    folder_path = filedialog.askdirectory()
+    app.quit() 
+    return folder_path
 
-# BONUS: Create a tkinter app that allows the user to select the folder via a button
 
 def create_folder(path: str, extension: str) -> str:
     """Creates a folder that is named after the extension of the file passed in"""
@@ -61,13 +66,19 @@ def remove_empty_folders(source_path: str):
 
 
 def main():
-    # Get some user input
-    user_input: str = input('Please provide a file path to sort: ')
+    # Get the folder where to sort
+    app = tk.Tk()
+    app.withdraw() 
+
+    folder_path = select_folder(app)
+
+    if folder_path:
+        print("Selected Folder:", folder_path)
 
     # Check if the path the user provided exists
-    if os.path.exists(path=user_input):
-        sort_files(user_input)
-        remove_empty_folders(user_input)
+    if os.path.exists(path=folder_path):
+        sort_files(folder_path)
+        remove_empty_folders(folder_path)
         print('Files sorted successfully!')
     else:
         print('Invalid path, please provide a valid file path.')
