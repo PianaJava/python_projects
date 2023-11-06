@@ -34,3 +34,5 @@ Hangman corrected with length checkup.
 #11 Added check if folder for images exists, otherwise create one
 
 #12 Added new visualization of data. 
+
+#13 Added prompt to select folder where to sort the files
