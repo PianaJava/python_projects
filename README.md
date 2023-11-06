@@ -32,3 +32,5 @@ Hangman corrected with length checkup.
 #10 Added a prompt input for digits and symbols
 
 #11 Added check if folder for images exists, otherwise create one
+
+#12 Added new visualization of data. 
