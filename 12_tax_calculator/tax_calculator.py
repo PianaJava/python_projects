@@ -6,7 +6,7 @@ class TaxCalculator:
         # Initialize our window
         self.window = ctk.CTk()
         self.window.title('Tax Calculator')
-        self.window.geometry('280x200')
+        self.window.geometry('560x140') # dimension of the window
         self.window.resizable(False, False)
 
         # Widget padding
@@ -14,17 +14,17 @@ class TaxCalculator:
 
         # Income label and entry
         self.income_label = ctk.CTkLabel(self.window, text='Income:')
-        self.income_label.grid(row=0, column=0, **self.padding)
+        self.income_label.grid(row=0, column=0, **self.padding)  # **self.padding, same as saying 'padx': 20, 'pady': 10
         self.income_entry = ctk.CTkEntry(self.window)
         self.income_entry.grid(row=0, column=1, **self.padding)
 
         # Tax label and entry
         self.tax_rate_label = ctk.CTkLabel(self.window, text='Percent:')
-        self.tax_rate_label.grid(row=1, column=0, **self.padding)
+        self.tax_rate_label.grid(row=0, column=3, **self.padding)
         self.tax_rate_entry = ctk.CTkEntry(self.window)
-        self.tax_rate_entry.grid(row=1, column=1, **self.padding)
-
-        #  Result label and entry
+        self.tax_rate_entry.grid(row=0, column=4, **self.padding)
+    
+        # Result label and entry
         self.result_label = ctk.CTkLabel(self.window, text='Tax:')
         self.result_label.grid(row=2, column=0, **self.padding)
         self.result_entry = ctk.CTkEntry(self.window)
@@ -32,8 +32,9 @@ class TaxCalculator:
         self.result_entry.grid(row=2, column=1, **self.padding)
 
         # Calculate button
-        self.calculate_button = ctk.CTkButton(self.window, text='Calculate', command=self.calculate_tax)
-        self.calculate_button.grid(row=3, column=1, **self.padding)
+        self.calculate_button = ctk.CTkButton(self.window, text='Calculate', command=self.calculate_tax, width=160, height=40)
+        self.calculate_button.grid(row=2, column=3, **self.padding, columnspan=2)
+    
 
     def update_result(self, text: str):
         """Updates the result of the tax field."""
