@@ -26,3 +26,9 @@ Hangman corrected with length checkup.
 #07 No special idea on how to modify this file, just added some output parameters
 
 #08 Added input prompt to select the file, random choose of the UserAgent
+
+#09 Fixes in password length and deepened the search with REGEX
+
+#10 Added a prompt input for digits and symbols
+
+#11 Added check if folder for images exists, otherwise create one

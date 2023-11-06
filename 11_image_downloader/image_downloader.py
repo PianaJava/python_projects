@@ -17,10 +17,13 @@ def download_image(image_url: str, name: str, folder: str = None):
 
     # Attempt to get the correct image extension from an url
     if ext := get_extension(image_url):
-        if folder:
+        #check if folder exists, otherwise create one
+        if folder and not os.path.exists(folder):
+            os.makedirs(folder)
+            print(f'New Folder \{folder} has been created.')
             image_name: str = f'{folder}/{name}{ext}'
         else:
-            image_name: str = f'{name}{ext}'
+            image_name: str = f'{folder}/{name}{ext}'
     else:
         raise Exception('Image extension could not be located...')
 
@@ -31,7 +34,7 @@ def download_image(image_url: str, name: str, folder: str = None):
     try:
         # Get the image as bytes and write it locally to our computer
         image_content: bytes = requests.get(image_url).content
-        with open(image_name, 'wb') as handler:
+        with open(image_name, 'wb') as handler:      #wb is used to ensure that the that opens in binary mode
             handler.write(image_content)
             print(f'Downloaded: "{image_name}" successfully!')
     except Exception as e:
