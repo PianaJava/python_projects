@@ -8,7 +8,7 @@ class Mood:
     sentiment: float
 
 
-def get_mood(input_text: str, *, sensitivity: float) -> Mood:
+def get_mood(input_text: str, *, sensitivity: float) -> Mood: # The * is used to indicate that all the parameters that follow must be specified as keyword arguments when calling the function. In other words, sensitivity cannot be provided as a positional argument; it must be passed using its keyword when calling the function.
     """
     Analyze the mood of a given text and return a Mood object containing the emoji and sentiment polarity.
 
