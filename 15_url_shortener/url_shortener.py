@@ -14,12 +14,14 @@ def shorten_link(full_link: str):
 
     # Gets the relevant information we need
     if url_data := data.get('url'):
-        if url_data['status'] == 7:
+        if url_data['status'] == 7:   # 7 means that OK - the link has been shortned 
             short_link: str = url_data['shortLink']
             print('Link:', short_link)
         else:
             print('Error status:', url_data['status'])
 
+        # To handle the error some new part of code must be added 
+        # Since there is the need to have a account in cutt.ly, I will skip it. 
 
 def main():
     # Take user input

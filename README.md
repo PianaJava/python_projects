@@ -36,3 +36,7 @@ Hangman corrected with length checkup.
 #12 Added new visualization of data. 
 
 #13 Added prompt to select folder where to sort the files
+
+#14 No changes
+
+#15 There is the need to have a account in cutt.ly, I will skip it. 
