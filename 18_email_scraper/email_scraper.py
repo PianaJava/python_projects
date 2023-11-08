@@ -17,15 +17,16 @@ class Browser:
     """Create a browser that scrapes any url for e-mail addresses"""
 
     # Initialize the webdriver with the path to chromedriver.exe
-    def __init__(self, driver: str):
+    def __init__(self):
         print('Starting up browser...')
+
+        #More options can be found here: https://peter.sh/experiments/chromium-command-line-switches/
         self.chrome_options = Options()
         self.chrome_options.add_argument("--headless")  # Prevents the browser from showing
         self.chrome_options.add_argument("--disable-extensions")
         self.chrome_options.add_argument("--disable-gpu")
 
-        self.service = Service(driver)
-        self.browser = webdriver.Chrome(service=self.service, options=self.chrome_options)
+        self.browser = webdriver.Chrome(options=self.chrome_options)
 
     def scrape_emails(self, url: str) -> set:
         print(f'Scraping: "{url}" for emails')
@@ -45,8 +46,8 @@ class Browser:
 
 
 def main():
-    driver: str = 'YOUR_DRIVER_PATH'
-    browser = Browser(driver=driver)
+    #driver: str = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    browser = Browser()
 
     # Scrape the e-mails
     emails: set = browser.scrape_emails('https://www.randomlists.com/email-addresses?qty=50')

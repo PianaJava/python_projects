@@ -40,3 +40,7 @@ Hangman corrected with length checkup.
 #14 No changes
 
 #15 There is the need to have a account in cutt.ly, I will skip it. 
+
+#16 Revritten the file
+
+#17 Moved the json file in a separate file and added the actual time and date when asked 
