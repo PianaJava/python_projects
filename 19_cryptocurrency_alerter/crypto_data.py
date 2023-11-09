@@ -27,8 +27,9 @@ def get_coins() -> list[Coin]:
     """
 
     # Make the request in euros
-    payload = {'vs_currency': 'eur', 'order': 'market_cap_desc'}
+    payload = {'vs_currency': 'eur'}
     data = requests.get(BASE_URL, params=payload)
+    print("DATA: ", data)
     json: dict = data.json()
 
     # Create coins and add them to a coin list
@@ -42,5 +43,4 @@ def get_coins() -> list[Coin]:
                                   price_change_24h=item.get('price_change_24h'),
                                   price_change_percentage_24h=item.get('price_change_percentage_24h'))
         coins_list.append(current_coin)
-
     return coins_list
