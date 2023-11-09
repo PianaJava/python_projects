@@ -42,3 +42,5 @@ Those are taken from https://github.com/federicoazzu/python_projects
 #19 Small changes on this, added a while loop and removed unused parameter
 
 #20 Added debud mode, new ip, new functionalities to be adjusted. There is a great potential here.
+
+#22 Added Error handling
