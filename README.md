@@ -7,19 +7,11 @@ Those are taken from https://github.com/federicoazzu/python_projects
 
 #02 Guess number tool, maximum attemps can be changed, Game over message implemented
 
-<<<<<<< HEAD
-#03
-DIce simulator, I added a function to sum up the total of the dice guesses
-
-#04 
-Hangman corrected with length checkup.
-=======
 #03 DIce simulator, I added a function to sum up the total of the dice guesses
 
 #04 Hangman corrected with length checkup.
 
 #05 Corrected with count update each step and final results 
->>>>>>> devel
 
 #06 Corrected with mandatory symbol or capital letter, when applied
 
@@ -44,3 +36,7 @@ Hangman corrected with length checkup.
 #16 Revritten the file
 
 #17 Moved the json file in a separate file and added the actual time and date when asked 
+
+#18 Adjusted file with modern selenium functionalities 
+
+#19 Small changes on this, added a while loop and removed unused parameter
