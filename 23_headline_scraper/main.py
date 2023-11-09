@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 
 
 def get_soup() -> BeautifulSoup:
@@ -31,13 +32,13 @@ def get_headlines(soup: BeautifulSoup) -> list[str]:
 
 def check_headlines(headlines: list[str], term: str):
     """Check if a term is found in a headline"""
-
+    pattern: str = re.compile(r'\b{}\b'.format(re.escape(term)))
     term_list: list[str] = []
     terms_found: int = 0
 
     # Loop through the headlines to find the keyword
     for i, headline in enumerate(headlines, start=1):
-        if term.lower() in headline:
+        if pattern.search(headline):
             terms_found += 1
             term_list.append(headline)
             print(f'{i}: {headline.capitalize()} <----------------------------- "{term}"')
@@ -62,7 +63,7 @@ def main():
     headlines: list[str] = get_headlines(soup=soup)
 
     # Get the user input and check for headlines
-    user_input: str = input('What term would you like to check for? >> ')
+    user_input: str = input('What term would you like to check for? >> ').lower()
     check_headlines(headlines, user_input)
 
 

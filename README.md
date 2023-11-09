@@ -44,3 +44,5 @@ Those are taken from https://github.com/federicoazzu/python_projects
 #20 Added debud mode, new ip, new functionalities to be adjusted. There is a great potential here.
 
 #22 Added Error handling
+
+#23 Integrated a regex to accurate the word research
