@@ -46,3 +46,7 @@ Those are taken from https://github.com/federicoazzu/python_projects
 #22 Added Error handling
 
 #23 Integrated a regex to accurate the word research
+
+#24 Nothing done here
+
+#25 Changed the smtp and added html into the code for initial presentation
