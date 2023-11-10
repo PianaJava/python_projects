@@ -16,7 +16,7 @@ def create_image_attachment(path: str) -> MIMEImage:
 
 def send_email(to_email: str, subject: str, body: str, image: str | None = None):
     # Specify the host and the port
-    host: str = 'smtp-mail.outlook.com'
+    host: str = 'smtp.gmail.com'  # to be adjusted accordingly
     port: int = 587
 
     # Validates the host name and its certificates and optimizes the security of the connection.
@@ -33,10 +33,15 @@ def send_email(to_email: str, subject: str, body: str, image: str | None = None)
         # Prepare the email
         print('Attempting to send the email...')
         message = MIMEMultipart()
-        message['From'] = credentials.EMAIL
-        message['To'] = to_email
+#        message['From'] = credentials.EMAIL
+#        message['To'] = '----------@gmail.com'
         message['Subject'] = subject
-        message.attach(MIMEText(body, 'plain'))
+        #message.attach(MIMEText(body, 'plain'))
+
+        # Attach HTML body
+        with open(body, "r", encoding="utf-8") as html_file:
+            body_content = MIMEText(html_file.read(), "html")
+            message.attach(body_content)
 
         # If there is an attachment, attach it to the e-mail
         if image:
@@ -51,4 +56,4 @@ def send_email(to_email: str, subject: str, body: str, image: str | None = None)
 
 
 if __name__ == '__main__':
-    send_email(to_email='TARGET_EMAIL@EXAMPLE.COM', subject='hello', body='this is a message', image='cat.png')
+    send_email(to_email='----------@gmail.com', subject='Email Test', body='introductionmessage.html', image='cat.png')

@@ -10,5 +10,5 @@ your project.
 
 from typing import Final
 
-EMAIL: Final[str] = 'YOUR_EMAIL'
-PASSWORD: Final[str] = 'YOUR_PASSWORD'
+EMAIL: Final[str] = '------------@gmail.com'
+PASSWORD: Final[str] = 'work for me not with real pass but with password app in Google, see link: https://support.google.com/accounts/answer/185833?hl=en'
