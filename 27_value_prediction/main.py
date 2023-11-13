@@ -13,15 +13,22 @@ def make_prediction(inputs: list[float], outputs: list[float], input_value: floa
 
     # Create a dataframe for our data
     df = pd.DataFrame({'inputs': inputs, 'outputs': outputs})
-
+    print(df)
     # Reshape the data using Numpy (X: Inputs, y: Outputs)
     X = np.array(df['inputs']).reshape(-1, 1)
     y = np.array(df['outputs']).reshape(-1, 1)
-
+    
     # Split the data into training data to test our model
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Parameters:
+    # - X: Features
+    # - y: Target variable
+    # - test_size: The proportion of the dataset to include in the test split (e.g., 0.2 for 20%)
+    # - random_state: Seed for random number generation, ensures reproducibility
     train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=0, test_size=.20)
 
     # Initialize the model and test it
+
     model = LinearRegression()
     model.fit(train_X, train_y)
 
@@ -57,9 +64,9 @@ if __name__ == '__main__':
     # Create some sample data
     years: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     earnings: list[int] = [1000, 800, 2000, 1500, 3400, 3700, 4000, 3800, 5000, 4800]
-    my_input: int = 15
+    my_input: int = 520
 
     # Create a prediction
-    prediction: Prediction = make_prediction(inputs=years, outputs=earnings, input_value=my_input, plot=False)
+    prediction: Prediction = make_prediction(inputs=years, outputs=earnings, input_value=my_input, plot=True)
     print('Input:', my_input)
     print(prediction)
